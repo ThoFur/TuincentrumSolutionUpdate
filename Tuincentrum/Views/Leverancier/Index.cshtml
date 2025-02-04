@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Leverancier>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Alle leveranciers</h1>
+@if(Model != null)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nummer</th>
+                <th>LeveranciersNaam</th>
+                <th>Adres</th>
+                <th>Postcode</th>
+                <th>Woonplaats</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var lev in Model!)
+            {
+                <tr>
+                    <td>@lev.LevNr</td>
+                    <td>@lev.Naam</td>
+                    <td>@lev.Adres</td>
+                    <td>@lev.PostNr</td>
+                    <td>@lev.Woonplaats</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>De database bevat momenteel geen leveranciersgegevens.</h2>
+}
